@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Damian/AndroidStudioProjects/KotlinLessons/TipTime/app/src/main/res/drawable/ic_round_up.xml" value="0.16" />
+        <entry key="..\:/Users/Damian/AndroidStudioProjects/KotlinLessons/TipTime/app/src/main/res/drawable/ic_service.xml" value="0.1" />
+        <entry key="..\:/Users/Damian/AndroidStudioProjects/KotlinLessons/TipTime/app/src/main/res/drawable/ic_store.xml" value="0.16" />
         <entry key="..\:/Users/Damian/AndroidStudioProjects/KotlinLessons/TipTime/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/KotlinLessons/TipTime/app/src/main/res/drawable-anydpi-v26/ic_launcher_foreground.xml" value="0.124" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/KotlinLessons/TipTime/app/src/main/res/drawable-v24/ic_launcher_background.xml" value="0.124" />
