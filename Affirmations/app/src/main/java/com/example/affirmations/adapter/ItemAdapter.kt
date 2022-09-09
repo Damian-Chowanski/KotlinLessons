@@ -1,4 +1,7 @@
 package com.example.affirmations.adapter
 
-class ItemAdapter {
+import android.content.Context
+import com.example.affirmations.model.Affirmation
+
+class ItemAdapter(val context: Context ,private val dataset: List<Affirmation>) {
 }
