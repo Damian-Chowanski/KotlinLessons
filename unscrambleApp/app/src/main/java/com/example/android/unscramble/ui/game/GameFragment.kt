@@ -21,6 +21,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.android.unscramble.R
@@ -48,7 +49,7 @@ class GameFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View {
         // Inflate the layout XML file and return a binding object instance
-        binding = GameFragmentBinding.inflate(inflater, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.game_fragment, container, false)
         Log.d("GameFragment", "Word: ${"ss"} " +
                 "Score: ${viewModel.score} WordCount: ${viewModel.currentWordCount}")
         return binding.root
@@ -61,18 +62,18 @@ class GameFragment : Fragment() {
         binding.submit.setOnClickListener { onSubmitWord() }
         binding.skip.setOnClickListener { onSkipWord() }
         // Update the UI
-        viewModel.currentScrambleWord.observe(viewLifecycleOwner,
-            { newWord ->
-                binding.textViewUnscrambledWord.text = newWord
-            })
-        viewModel.score.observe(viewLifecycleOwner,
-            { newScore ->
-                binding.score.text = getString(R.string.score, newScore)
-            })
-        viewModel.currentWordCount.observe(viewLifecycleOwner,
-            { newWordCount ->
-                binding.wordCount.text = getString(R.string.word_count, newWordCount, MAX_NO_OF_WORDS)
-            })
+        viewModel.currentScrambleWord.observe(viewLifecycleOwner
+        ) { newWord ->
+            binding.textViewUnscrambledWord.text = newWord
+        }
+        viewModel.score.observe(viewLifecycleOwner
+        ) { newScore ->
+            binding.score.text = getString(R.string.score, newScore)
+        }
+        viewModel.currentWordCount.observe(viewLifecycleOwner
+        ) { newWordCount ->
+            binding.wordCount.text = getString(R.string.word_count, newWordCount, MAX_NO_OF_WORDS)
+        }
     }
 
     /*
@@ -84,8 +85,6 @@ class GameFragment : Fragment() {
         if (viewModel.isUserWordCorrect(playerWord)) {
             setErrorTextField(false)
             if (!viewModel.nextWord()) {
-                showFinalScoreDialog()
-            } else {
                 showFinalScoreDialog()
             }
         } else {
