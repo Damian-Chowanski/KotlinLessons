@@ -22,9 +22,10 @@
         <variable
             name="gameViewModel"
             type="com.example.android.unscramble.ui.game.GameViewModel" />
+
         <variable
             name="maxNoOfWords"
-            type="android.R.integer" />
+            type="int" />
 
     </data>
 
@@ -60,6 +61,7 @@
                 app:layout_constraintStart_toEndOf="@+id/skip"
                 app:layout_constraintTop_toBottomOf="@+id/textField" />
 
+
             <TextView
                 android:id="@+id/textView_instructions"
                 android:layout_width="wrap_content"
@@ -78,6 +80,7 @@
                 android:layout_marginTop="@dimen/default_margin"
                 android:layout_marginBottom="@dimen/default_margin"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
+                android:text="@{gameViewModel.currentScrambleWord}"
                 app:layout_constraintBottom_toTopOf="@+id/textView_instructions"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

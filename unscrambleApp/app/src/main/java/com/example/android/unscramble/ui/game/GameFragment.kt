@@ -33,9 +33,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
  */
 class GameFragment : Fragment() {
 
-
     private val viewModel: GameViewModel by viewModels()
-
 
     // Binding object instance with access to the views in the game_fragment.xml layout
     private lateinit var binding: GameFragmentBinding
@@ -69,10 +67,6 @@ class GameFragment : Fragment() {
         binding.submit.setOnClickListener { onSubmitWord() }
         binding.skip.setOnClickListener { onSkipWord() }
         // Update the UI
-        viewModel.currentScrambleWord.observe(viewLifecycleOwner
-        ) { newWord ->
-            binding.textViewUnscrambledWord.text = newWord
-        }
         viewModel.score.observe(viewLifecycleOwner
         ) { newScore ->
             binding.score.text = getString(R.string.score, newScore)
