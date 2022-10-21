@@ -43,13 +43,11 @@ class GameFragment : Fragment() {
     // first fragment
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View {
         // Inflate the layout XML file and return a binding object instance
         binding = DataBindingUtil.inflate(inflater, R.layout.game_fragment, container, false)
-        Log.d("GameFragment", "Word: ${"ss"} " +
-                "Score: ${viewModel.score} WordCount: ${viewModel.currentWordCount}")
         return binding.root
     }
 
@@ -90,7 +88,7 @@ class GameFragment : Fragment() {
      * Increases the word count.
      */
     private fun onSkipWord() {
-        if (viewModel.nextWord()){
+        if (viewModel.nextWord()) {
             setErrorTextField(false)
         } else {
             showFinalScoreDialog()
@@ -126,12 +124,7 @@ class GameFragment : Fragment() {
         }
     }
 
-    override fun onDetach() {
-        super.onDetach()
-        Log.d("GameFragment", "GameFragment destroyed!")
-    }
-
-    private fun showFinalScoreDialog(){
+    private fun showFinalScoreDialog() {
         MaterialAlertDialogBuilder(requireContext())
             .setTitle(getString(R.string.congratulations))
             .setMessage(getString(R.string.you_scored, viewModel.score.value))
